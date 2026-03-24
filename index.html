@@ -1,23 +1,62 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>Water Quest</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Water Quest — charity: water</title>
   <link href="style.css" rel="stylesheet" type="text/css" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 </head>
 <body>
+
+  <canvas id="confetti-canvas"></canvas>
+
   <div class="container">
-    <h1>Water Quest</h1>
-    <p class="game-instructions">Collect 20 items to complete the game!</p>
-    <div class="stats">
-      <p>Cans Collected: <span id="current-cans">0</span></p>
-      <p>Time Left: <span id="timer">30</span>s</p>
+
+    <div class="brand-lockup">
+      <span class="jerry-icon">🟡</span>
+      <span class="brand-label">charity: water</span>
     </div>
-    <div id="achievements" class="achievement"></div>
-    <div class="game-grid"></div>
-    <button id="start-game">Start Game</button>
+
+    <h1>Water Quest</h1>
+    <p class="game-instructions">Collect <strong>25 cans</strong> before time runs out — avoid the <span class="red">dirty water!</span></p>
+
+    <div class="stats">
+      <div class="stat-block">
+        <p class="stat-label">Cans Collected</p>
+        <p class="stat-value"><span id="current-cans">0</span><span class="stat-sub"> / 25</span></p>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-block">
+        <p class="stat-label">Time Left</p>
+        <p class="stat-value"><span id="timer">30</span><span class="stat-sub">s</span></p>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-block">
+        <p class="stat-label">Score</p>
+        <p class="stat-value"><span id="score-display">0</span></p>
+      </div>
+    </div>
+
+    <div class="progress-track">
+      <div class="progress-fill" id="progress-fill" style="width:0%"></div>
+    </div>
+
+    <div id="achievement" class="achievement" style="display:none"></div>
+
+    <div id="feedback-msg" class="feedback-msg" style="display:none"></div>
+
+    <div class="game-grid" id="game-grid"></div>
+
+    <div class="controls">
+      <button id="start-btn" class="btn-start">Start Game</button>
+      <button id="reset-btn" class="btn-reset" style="display:none">↺ Reset</button>
+    </div>
+
+    <p id="status-line" class="status-line">Tap Start to begin your mission!</p>
+
   </div>
+
   <script src="script.js"></script>
 </body>
 </html>
