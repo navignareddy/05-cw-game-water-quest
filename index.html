@@ -12,19 +12,29 @@
   <canvas id="confetti-canvas"></canvas>
 
   <div class="container">
-
     <div class="brand-lockup">
       <span class="jerry-icon">🟡</span>
       <span class="brand-label">charity: water</span>
     </div>
 
     <h1>Water Quest</h1>
-    <p class="game-instructions">Collect <strong>25 cans</strong> before time runs out — avoid the <span class="red">dirty water!</span></p>
+    <p class="game-instructions">
+      Collect <strong id="goal-text">25 cans</strong> before time runs out — avoid the <span class="red">dirty water!</span>
+    </p>
+
+    <div class="mode-panel">
+      <p class="panel-title">Choose difficulty</p>
+      <div class="mode-switcher" id="mode-switcher">
+        <button class="mode-btn active" data-mode="easy">Easy</button>
+        <button class="mode-btn" data-mode="normal">Normal</button>
+        <button class="mode-btn" data-mode="hard">Hard</button>
+      </div>
+    </div>
 
     <div class="stats">
       <div class="stat-block">
         <p class="stat-label">Cans Collected</p>
-        <p class="stat-value"><span id="current-cans">0</span><span class="stat-sub"> / 25</span></p>
+        <p class="stat-value"><span id="current-cans">0</span><span class="stat-sub"> / <span id="goal-count">25</span></span></p>
       </div>
       <div class="stat-divider"></div>
       <div class="stat-block">
@@ -36,25 +46,40 @@
         <p class="stat-label">Score</p>
         <p class="stat-value"><span id="score-display">0</span></p>
       </div>
+      <div class="stat-divider"></div>
+      <div class="stat-block">
+        <p class="stat-label">Best</p>
+        <p class="stat-value"><span id="best-score">0</span></p>
+      </div>
     </div>
 
     <div class="progress-track">
       <div class="progress-fill" id="progress-fill" style="width:0%"></div>
     </div>
 
-    <div id="achievement" class="achievement" style="display:none"></div>
+    <div id="milestone-strip" class="milestone-strip"></div>
 
+    <div id="achievement" class="achievement" style="display:none"></div>
     <div id="feedback-msg" class="feedback-msg" style="display:none"></div>
 
     <div class="game-grid" id="game-grid"></div>
 
     <div class="controls">
       <button id="start-btn" class="btn-start">Start Game</button>
+      <button id="pause-btn" class="btn-pause" style="display:none">Pause</button>
       <button id="reset-btn" class="btn-reset" style="display:none">↺ Reset</button>
     </div>
 
     <p id="status-line" class="status-line">Tap Start to begin your mission!</p>
 
+    <footer class="game-footer">
+      <p class="footer-note">Help support clean water access around the world.</p>
+      <div class="footer-links">
+        <a href="https://www.charitywater.org/" target="_blank" rel="noopener noreferrer">charity: water</a>
+        <a href="https://www.charitywater.org/donate" target="_blank" rel="noopener noreferrer">Donate</a>
+        <a href="https://www.charitywater.org/our-work" target="_blank" rel="noopener noreferrer">Our Work</a>
+      </div>
+    </footer>
   </div>
 
   <script src="script.js"></script>
